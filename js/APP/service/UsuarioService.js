@@ -29,6 +29,7 @@ export const UsuarioService = {
     });
   },
   DashBoard() {
+    console.log("bbbbbbbbbbbbbb")
     return {data:"01/02"}
     return new Promise((resolve, reject) => {
       const xhr = createRequest();
