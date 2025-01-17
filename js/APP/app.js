@@ -1,24 +1,23 @@
 import { store } from './store/appStore.js';
 import { router } from './router/router.js';
 import { CookieService } from './service/CookieService.js'
+import {Login} from './component/login/index.js'
 
 const App = {
   data() {
     return {
-      _modalLoginAberto: 'flex',//hidden | flex
+      _modalLoginAberto: 'hidden',//hidden | flex
       nada: ""
     }
   },
   methods: {
     logar() {
-      let cookies = CookieService.getCookie("teste");
+      let cookies = CookieService.cookieExists();
       if(cookies != null){
-        console.log("tem cookies")
+        store.commit('logar')
       }else{
         console.log("não tem cookies")
       }
-      //this._modalLoginAberto = "hidden"
-      //store.commit('logar')
     }
   },
   computed: {
@@ -27,6 +26,9 @@ const App = {
     }
   },
   template: `
+<login />
+
+
             <header class="bg-white shadow-md">
                 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                     <h1 class="text-xl font-semibold text-gray-900">DIETA e ACOMPANHAMENTO</h1>

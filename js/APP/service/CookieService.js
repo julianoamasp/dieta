@@ -18,8 +18,8 @@ export const CookieService = {
         }
         return null;
     },
-    cookieExists(nomeCookie) {
-        return getCookie(nomeCookie) !== null;
+    cookieExists() {
+        return this.getCookie("USUARIO") !== null;
     },
     updateCookie(nomeCookie, value, days) {
         setCookie(nomeCookie, value, days);
